@@ -1,11 +1,14 @@
-var fs = require('fs');
+//var fs = require('fs');
 var express = require('express');
 var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
- // var txt = fs.readFileSync('index.html');
-  response.send(fs.readFileSync(__dirname + '/index.html'));
+// var txt = fs.readFileSync('index.html');
+// response.send(fs.readFileSync(__dirname + '/index.html'));
+	var fs=require('fs');
+	var content=fs.readFileSync('index.html','utf-8');
+	response.send(content);
 });
 
 var port = process.env.PORT || 5000;
